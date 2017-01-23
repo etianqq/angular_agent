@@ -27,7 +27,7 @@ angular.module('myapp')
             });
             role.selected = true;
             SettingResource.getAdminList({roleKid: role.Kid}).success(function (data) {
-                $scope.adminList = data.Data.Records;
+                $scope.adminList = data.Data;
             });
         };
 

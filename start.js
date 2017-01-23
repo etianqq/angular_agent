@@ -19,6 +19,20 @@ app.listen(9003, function () {
 var signUpServer = require('./server/signup');
 signUpServer.init(app);
 
+
+var commonServer = require('./server/common');
+commonServer.init(app);
+
+var buildingManagerServer = require('./server/buildingManager');
+buildingManagerServer.init(app);
+
+var buyApplyServer = require('./server/buyApply');
+buyApplyServer.init(app);
+
+
+var settingServer = require('./server/setting');
+settingServer.init(app);
+
 /*--------------------- REST API ---------------------*/
 /*---------------------  MainSheet ---------------------*/
 app.get('/MainSheet/SummaryCount', function (req, res) {
@@ -58,61 +72,6 @@ app.get('/BuildingGarageSetting/BuildingList', function (req, res) {
     var data = [{title: "项目一期", buildingList: [{shopCount: 2, houseCount: 4, title: "一号楼"}]}];
     res.send({Code: 0, Count: 1, Items: data});
 });
-/*---------------------  BuildingManager ---------------------*/
-app.get('/BuildingManager/GetList', function (req, res) {
-    var data = [{
-        id: 1,
-        Regierungsbezirk: "南京市江宁区",
-        BuildingName: "双湖星城",
-        BuildingContactName: "宋仲基",
-        BuildingContactPhone: "13455829357",
-        BeginTime: "2015-3-20",
-        EndTime: "2016-3-20",
-        ServiceBuyMonth: 12,
-        DaysRemaining: 3,
-        IsOpen: false
-    },
-        {
-            id: 2,
-            Regierungsbezirk: "南京市浦口区",
-            BuildingName: "中和绿色谷",
-            BuildingContactName: "宋慧乔",
-            BuildingContactPhone: "13455829357",
-            BeginTime: "2015-3-20",
-            EndTime: "2016-6-20",
-            ServiceBuyMonth: 12,
-            DaysRemaining: 6,
-            IsOpen: true
-        }];
-    res.send({Code: 0, Count: 1, Items: data});
-});
-
-
-app.get('/BuildingManagerApply/GetList', function (req, res) {
-    var data = [{
-        id: 1,
-        Regierungsbezirk: "南京市江宁区",
-        BuildingName: "双湖星城",
-        BuildingContactName: "宋仲基",
-        BuildingContactPhone: "13455829357",
-        ServiceBuyMonth: 12,
-        ApplyRemark: "pass",
-        ApplyDate: "2016-6-20",
-        isAudit: true
-    },
-        {
-            id: 2,
-            Regierungsbezirk: "南京市浦口区",
-            BuildingName: "中和绿色谷",
-            BuildingContactName: "宋慧乔",
-            BuildingContactPhone: "13455829357",
-            ServiceBuyMonth: 12,
-            ApplyRemark: "pass",
-            ApplyDate: "2016-6-20",
-            isAudit: false
-        }];
-    res.send({Code: 0, Count: 1, Items: data});
-});
 
 /*---------------------  BuildingManagerLog ---------------------*/
 app.post('/BuildingManagerLog/GetList', function (req, res) {
@@ -139,28 +98,6 @@ app.post('/BuildingManagerLog/GetList', function (req, res) {
 });
 
 /*---------------------  buy apply ---------------------*/
-app.get('/BuyApply/GetList', function (req, res) {
-    var data = [{
-        id: 1,
-        AddTime: "2016-6-20",
-        AuditStatus: "pass",
-        ServiceBuyMonth: 12,
-        SoldServiceMonth: 5,
-        SurplusServiceMonth: 3,
-        AuditRemark: "ok"
-    },
-        {
-            id: 2,
-            AddTime: "2016-2-12",
-            AuditStatus: "pass",
-            ServiceBuyMonth: 24,
-            SoldServiceMonth: 9,
-            SurplusServiceMonth: 2,
-            AuditRemark: "no"
-        }];
-    res.send({Code: 0, Count: 1, Items: data});
-});
-
 app.post('/BuyApply/Create', function (req, res) {
     var data = {
         AgentName: "江苏省南京市销冠代理商广告策划有限公司",
@@ -201,30 +138,4 @@ app.get('/Admin/GetAdminLogByKid', function (req, res) {
         {kid: 2, UpdateBuilding: "ConfigBuilding2", F_Remark: "修改楼盘配置2", F_AddTime: "2016-05-16 11:12:55"},
         {kid: 3, UpdateBuilding: "ConfigBuilding3", F_Remark: "修改楼盘配置3", F_AddTime: "2016-05-15 11:12:55"}];
     res.send({Code: 0, Count: 1, Items: data});
-});
-
-/*--------------------- for test ---------------------*/
-app.get('/Code/3', function (req, res) {
-    console.log("/Code/3");
-    res.send({Code: 3, Message: "it is code 3"});
-});
-
-app.get('/Code/302', function (req, res) {
-    console.log("/Code/302");
-    res.send({Code: 302, Message: "http://baidu.com"});
-});
-
-app.get('/Code/4000', function (req, res) {
-    console.log("/Code/4000");
-    res.send({Code: 4000});
-});
-
-app.get('/Code/4002', function (req, res) {
-    console.log("/Code/4002");
-    res.send({Code: 4002});
-});
-
-app.get('/Code/error', function (req, res) {
-    console.log("/Code/error");
-    res.send({Code: 33, Message: "it is error code"});
 });
