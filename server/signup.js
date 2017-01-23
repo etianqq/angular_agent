@@ -12,22 +12,29 @@ var sigupServer = {
         });
 
         app.get('/SysConfig/Area/GetCountryList', function (req, res) {
-            res.send({Data: [{F_Name: "中国", F_PhoneCode: 86}]});
+            var items = [
+                {
+                    F_Name: "中国",
+                    F_PhoneCode: 86
+                }
+            ];
+            res.send({Data: items});
         });
 
         app.get('/ProvinceCityArea/GetProvinceCityAreaList', function (req, res) {
-            var kid = req.params.kid;
-            console.log("req.params.kid:"+req.params.kid);
+            var kid = req.query.kid;
             switch (kid) {
-                case 0:
+                case "0":
                     res.send({Data: [{F_Name: "浙江", Kid: 1}]});
                     break;
-                case 1:
+                case "1":
                     res.send({Data: [{F_Name: "杭州市", Kid: 2}]});
                     break;
-                case 2:
+                case "2":
                     res.send({Data: [{F_Name: "上城区", Kid: 3}]});
                     break;
+                default :
+                    res.send({Data: [{F_Name: "北京", Kid: 0}]});
             }
 
         });

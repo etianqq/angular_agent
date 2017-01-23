@@ -33,7 +33,6 @@ angular.module('myapp')
         $scope.provinceObj = {isShowSelectContainer: false, type: "province"};
         $scope.cityObj = {isShowSelectContainer: false, type: "city"};
         $scope.areaObj = {isShowSelectContainer: false, type: "area"};
-
         fetchCountryList();
         fetchProvinceCityAreaList(0);
 
@@ -159,7 +158,7 @@ angular.module('myapp')
 
             SignupResource.register($scope.account).success(function (data) {
                 if (data.Code === 0) {
-                    $location.path("/login");
+                    $location.path("/buildingManager");
                 }
                 else {
                     $.messager.showMsgInfo(data.Message || "注册失败！");

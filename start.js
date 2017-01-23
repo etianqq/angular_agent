@@ -33,46 +33,6 @@ buyApplyServer.init(app);
 var settingServer = require('./server/setting');
 settingServer.init(app);
 
-/*--------------------- REST API ---------------------*/
-/*---------------------  MainSheet ---------------------*/
-app.get('/MainSheet/SummaryCount', function (req, res) {
-    var data = {
-        VCount: 5,
-        SCount: 10,
-        RCount: 4,
-        LCount: 7,
-        HCount: 8,
-        MCount: 9,
-        ZCount: 20,
-        AllCount: 63
-    };
-    res.send({Code: 0, Count: 1, Data: data});
-});
-
-app.get('/MainSheet/GarageList', function (req, res) {
-    var data = [{
-        floorCount: 2, undergroundCount: 4, title: "一期车位"
-    }];
-    res.send({Code: 0, Count: 1, Items: data});
-});
-
-app.get('/MainSheet/BuildingList', function (req, res) {
-    var data = [{title: "项目一期", buildingList: [{shopCount: 2, houseCount: 4, title: "一号楼"}]}];
-    res.send({Code: 0, Count: 1, Items: data});
-});
-/*---------------------  BuildingGarageSettingCtrl ---------------------*/
-app.get('/BuildingGarageSetting/GarageList', function (req, res) {
-    var data = [{
-        floorCount: 2, undergroundCount: 4, title: "一期车位"
-    }];
-    res.send({Code: 0, Count: 1, Items: data});
-});
-
-app.get('/BuildingGarageSetting/BuildingList', function (req, res) {
-    var data = [{title: "项目一期", buildingList: [{shopCount: 2, houseCount: 4, title: "一号楼"}]}];
-    res.send({Code: 0, Count: 1, Items: data});
-});
-
 /*---------------------  BuildingManagerLog ---------------------*/
 app.post('/BuildingManagerLog/GetList', function (req, res) {
     var Items = [{

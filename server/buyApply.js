@@ -24,6 +24,22 @@ var buyApplyServer = {
                 }];
             res.send({Code: 0, Data: data});
         });
+
+        app.get('/Agent/FindByID', function (req, res) {
+            var data = {
+                AgentName: "寒武纪集团",
+                Regierungsbezirk: "杭州市上城区",
+                ContactName: "李冰冰",
+                ContactPhone: "123456789",
+                SurplusServiceMonth: 11,
+                remark: "信用良好"
+            };
+            res.send({Code: 0, Data: data});
+        });
+
+        app.post('/AgentService/Add', function (req, res) {
+            res.send({Code: 0, Message: "Add successfully!"});
+        });
     }
 };
 
