@@ -14,7 +14,7 @@ angular.module('myapp')
         };
         return repo;
     })
-    .controller('AgentBuyApplyCtrl', function ($scope, $uibModal, $log, globalParas, BuyApplyResource) {
+    .controller('AgentBuyApplyCtrl', function ($scope, $uibModal, $log, globalParas, BuyApplyResource, messageUI) {
         fetchApplyList();
 
         function fetchApplyList() {
@@ -55,11 +55,11 @@ angular.module('myapp')
                         remark: buyApplyObj.remark
                     }).success(function (res) {
                         if (res.Code === 0) {
-                            $.messager.showMsgInfo("购买成功！");
+                            messageUI.showAlertMsg("购买成功！");
                             fetchApplyList();
                         }
                         else {
-                            $.messager.showMsgErr(res.Message || "购买失败！")
+                            messageUI.showAlertMsg(res.Message || "购买失败！")
                         }
                     });
                 }, function () {
