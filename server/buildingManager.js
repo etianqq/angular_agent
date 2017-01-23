@@ -56,6 +56,53 @@ var buildingServer = {
                 }];
             res.send({Code: 0,  Data: {Count: 1, Items: data}});
         });
+
+        app.get('/AgentBuildingService/GetListByBuildingID', function (req, res) {
+            var Items = [{
+                id: 1,
+                AddTime: "2016-6-20",
+                ApplyName: "宋仲基",
+                ServiceBuyMonth: 12,
+                ApplyRemark: "pass",
+                DaysRemaining: 4
+            },
+                {
+                    id: 2,
+                    AddTime: "2016-6-20",
+                    ApplyName: "宋慧乔",
+                    ServiceBuyMonth: 11,
+                    ApplyRemark: "pass",
+                    DaysRemaining: 2
+                }];
+            var data = {};
+            data.Details = Items;
+            data.BuildingName = "双湖星城";
+            res.send({Code: 0, Data :data});
+        });
+
+        app.post('/AgentBuilding/Open', function (req, res) {
+            res.send({Code: 0, Message :"Add successfully!"});
+        });
+
+        app.get('/AgentBuildingService/FindByID', function (req, res) {
+            var data = {
+                BuildingName: "太和广场",
+                Regierungsbezirk: "浙江省杭州市上城区",
+                BuildingContactName: "张楠",
+                BuildingContactPhone: "123456789",
+                ServiceBuyMonth: 10,
+                BeginTime: "2017-1-2",
+                EndTime: "2017-1-12",
+                ApplyRemark: "申请人资质很好",
+                AuditRemark: "需要审核",
+                AuditStatus: 0
+            };
+            res.send({Code: 0, Data :data});
+        });
+
+        app.post('/AgentBuildingService/AuditApply', function (req, res) {
+            res.send({Code: 0, Message :"Audit successfully!"});
+        });
     }
 };
 

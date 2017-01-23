@@ -11,7 +11,7 @@ var buyApplyServer = {
                 ServiceBuyMonth: 12,
                 SoldServiceMonth: 5,
                 SurplusServiceMonth: 3,
-                AuditRemark: "没有备注"
+                ApplyRemark: "没有备注"
             },
                 {
                     id: 2,
@@ -20,7 +20,7 @@ var buyApplyServer = {
                     ServiceBuyMonth: 24,
                     SoldServiceMonth: 9,
                     SurplusServiceMonth: 2,
-                    AuditRemark: "优质客户"
+                    ApplyRemark: "优质客户"
                 }];
             res.send({Code: 0, Data: data});
         });
