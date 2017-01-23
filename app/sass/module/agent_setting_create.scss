@@ -1,0 +1,25 @@
+#agent_setting_create {
+  .form-horizontal {
+    width: 650px;
+    margin-top: 20px;
+    input {
+      border-radius: 0;
+    }
+
+    .error-tips {
+      line-height: 34px;
+    }
+
+    .actions {
+      .btn {
+        width: 100px;
+        height: 31px;
+        line-height: 29px;
+        padding: 0;
+        &:first-child {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}

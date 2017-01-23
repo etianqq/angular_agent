@@ -1,0 +1,36 @@
+<div id="agent_buyApply" class="sass-wrap">
+    <div class="content">
+        <div class="bton">
+            <div class="bton_left">
+                <div class="bton_left_nav">
+                    <a class="btn_payment last" ng-click="buyApplyingModal()">购买申请</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab_warp">
+        <table class="sub_table">
+            <thead>
+            <tr class="info_title">
+            <th>时间</th>
+            <th>审核状态</th>
+            <th>购买服务(月)</th>
+            <th>已销售服务(月)</th>
+            <th>服务剩余时间(月)</th>
+            <th>备注</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="sub in subList" class="info_cont">
+                <td ng-bind="sub.AddTime"></td>
+                <td ng-bind="sub.AuditStatus"></td>
+                <td ng-bind="sub.ServiceBuyMonth"></td>
+                <td ng-bind="sub.SoldServiceMonth"></td>
+                <td ng-bind="sub.SurplusServiceMonth"></td>
+                <td ng-bind="sub.ApplyRemark"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

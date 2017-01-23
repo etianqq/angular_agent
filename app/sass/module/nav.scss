@@ -1,0 +1,54 @@
+#topBar {
+  .navbar-default {
+    background-color: #005eac;
+    border-color: #005eac;
+    color: #fff;
+
+    .navbar-nav > li {
+      > a {
+        color: #a1d3ff;
+        font-size: 16px;
+      }
+
+      &.on {
+        background-color: #00559c;
+        > a {
+          color: #fff;
+        }
+      }
+    }
+
+    .navbar-right {
+      li.left-month {
+        text-align: center;
+        margin-right: 20px;
+        .top-text {
+          display: block;
+          color: #fff;
+          padding-top: 8px;
+          padding-bottom: 2px;
+          font-size: 14px;
+        }
+
+        .bottom-text {
+          display: inline-block;
+          color: red;
+          font-size: 16px;
+        }
+      }
+
+      li.agent-name {
+        color: #fff;
+        font-size: 16px;
+        line-height: 50px;
+        margin-right: 40px;
+      }
+    }
+
+    .userCenter {
+      @include bg_image("nopic.png", "no-repeat 0 center");
+      background-size: 35px 35px;
+      padding-left: 40px;
+    }
+  }
+}

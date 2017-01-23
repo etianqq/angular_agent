@@ -1,0 +1,74 @@
+<div id="agent_buildingManager">
+
+    <ul class="tab_nav">
+        <ul class="tab_nav">
+            <li>
+                <a value="building" href="#/agent/buildingManager">楼盘管理</a>
+            </li>
+            <li class="on">
+                <a value="garage" href="#/agent/buildingManagerApply">楼盘申请</a>
+            </li>
+        </ul>
+    </ul>
+    <div class="sass-wrap">
+        <div class="content">
+            <div class="bton">
+                <div class="bton_left">
+                    <div class="bton_left_nav">
+                        <a class="btn_refresh last" ng-click="refresh()">刷新</a>
+                    </div>
+                </div>
+                <div class="bton_right">
+                    <div class="search">
+                        <input type="text" name="inpSearch" class="sinput" placeholder="搜索楼盘名称" ng-model="keywords">
+                        <button ng-click="updateDataList()" class="sbtn"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab_warp">
+            <table class="sub_table">
+                <thead>
+                <tr class="info_title">
+                <th>序号</th>
+                <th>行政区</th>
+                <th>楼盘名称</th>
+                <th>联系人</th>
+                <th>联系电话</th>
+                <th>购买服务（月）</th>
+                <th>备注</th>
+                <th>提交申请时间</th>
+                <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="sub in subList" class="info_cont">
+                    <td ng-bind="$index+1"></td>
+                    <td ng-bind="sub.Regierungsbezirk"></td>
+                    <td ng-bind="sub.BuildingName"></td>
+                    <td ng-bind="sub.BuildingContactName"></td>
+                    <td ng-bind="sub.BuildingContactPhone"></td>
+                    <td ng-bind="sub.ServiceBuyMonth"></td>
+                    <td ng-bind="sub.ApplyRemark"></td>
+                    <td ng-bind="sub.AddTime"></td>
+                    <td ng-show="sub.AuditStatus==0">
+                        <a ng-click="openBuildingModal(sub)">审核</a>
+                    </td>
+                    <td ng-show="sub.AuditStatus!=0">
+                        <a ng-click="openBuildingModal(sub)">查看详情</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!--放置分页 begin -->
+            <div class="pageTable">
+                <div class="pageIn">
+                    <sass-paging page-size="pageSize" page-index="pageIndex" total-count="totalCount">
+                    </sass-paging>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

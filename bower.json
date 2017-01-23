@@ -1,0 +1,23 @@
+{
+  "name": "agent",
+  "description": "agent project",
+  "main": "app.js",
+  "authors": [
+    "linaqiu"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "agent"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "dependencies": {
+    "angular": "1.4.8",
+    "oclazyload": "ocLazyLoad#^1.0.9",
+    "angular-ui-router": "^0.2.18",
+    "angular-bootstrap": "^1.3.2",
+    "angular-animate": "^1.5.5",
+    "angular-md5": "^0.1.10",
+    "angular-cookies": "^1.5.5"
+  }
+}

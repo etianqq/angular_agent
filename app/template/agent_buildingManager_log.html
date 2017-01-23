@@ -1,0 +1,33 @@
+<div id="agent_buildingManager_log">
+    <div class="sass-wrap">
+        <div class="fromtit1 clearfix">
+            <span>申请记录 (<span ng-bind="BuildingName"></span>)</span>
+            <a class="gouback" href="#/agent/buildingManager">返回</a>
+        </div>
+
+        <div class="tab_warp">
+            <table class="sub_table">
+                <thead>
+                <tr class="info_title">
+                    <th>时间</th>
+                    <th>申请人</th>
+                    <th>申请账号</th>
+                    <th>购买服务</th>
+                    <th>服务剩余有效期（天）</th>
+                    <th>备注</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="sub in subList" class="info_cont">
+                    <td ng-bind="sub.AddTime"></td>
+                    <td ng-bind="sub.BuildingContactName"></td>
+                    <td ng-bind="sub.BuildingContactPhone"></td>
+                    <td ng-bind="sub.ServiceBuyMonth"></td>
+                    <td ng-bind="sub.DaysRemaining"></td>
+                    <td ng-bind="sub.ApplyRemark"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

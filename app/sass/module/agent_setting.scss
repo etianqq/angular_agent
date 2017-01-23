@@ -1,0 +1,42 @@
+#agent_setting {
+  .content_left {
+    float: left;
+    width: 22%;
+    position: relative;
+    padding-bottom: 60px;
+
+    .sub_table {
+      min-width: 200px;
+      border: 1px solid #e6e6e6;
+
+      tbody {
+        tr:hover, tr.selected {
+          border: 1px solid #0074d9;
+          border-left: none;
+          @include bg_image("line_left.png", "left center repeat-y");
+          background-color: #f6f6f6;
+        }
+        .info_cont td:first-child {
+          text-indent: 10px;
+        }
+      }
+    }
+  }
+  .content_right {
+    float: right;
+    width: 75%;
+    max-height: 400px;
+    table-layout: fixed;
+    border-bottom: 1px solid #e6e6e6;
+    .sub_table {
+      border: 1px solid #e6e6e6;
+    }
+  }
+
+  .modal[windowClass=logModal] {
+    .modal-body {
+      height: 600px;
+      overflow-y: auto;
+    }
+  }
+}

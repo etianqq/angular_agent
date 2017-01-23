@@ -1,0 +1,210 @@
+﻿/*-------global--------------------------*/  
+html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;}
+header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;font-weight:normal;}
+html,body,fieldset,img,iframe,abbr{border:0;}
+i,cite,em,var,address,dfn{font-style:normal;}
+[hidefocus],summary{outline:0;}
+li{list-style:none;}
+sup,sub{font-size:83%;}
+pre,code,kbd,samp{font-family:inherit;}
+q:before,q:after{content:none;}
+textarea{overflow:auto;resize:none;}
+label,summary{cursor:default;}
+a,button{cursor:pointer;}
+h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:bold;}
+del,ins,u,s,a,a:hover{text-decoration:none;}
+body,textarea,input,button,select,keygen,legend,td,th,li,p{font:14px/1.14 "微软雅黑",arial,\5b8b\4f53;color:#666;outline:0;}
+h1, h2, h3, h4, h5, h6, div {font-family:"微软雅黑",arial,\5b8b\4f53;}
+.fl {float:left;}
+.fr {float:right;}
+.ff {font-family:"微软雅黑";}
+.clearfix:after{content:"\0020"; height:0; display:block; clear:both;}
+.clearfix{zoom:1}
+.clearFloat{clear:both}
+label{font-weight: normal!important;}
+
+.fs30{font-size:30px;}
+.fs26{font-size:26px;}
+.fs24{font-size:24px;}
+.fs18{font-size:18px;}
+.fs16{font-size:16px;}
+.fs15{font-size:15px;}
+.fs14{font-size:14px;}
+.fs12{font-size:12px;}
+
+.mr5 {margin-right:5px;}
+.mb5{margin-bottom: 5px;}
+.mb10{margin-bottom: 10px;}
+.mr10{height:30px;line-height: 30px;margin-right:10px;color:$grey_dark}
+.mr20 {margin-right:20px;}
+.ml20 {margin-left:20px;}
+.ml10 {margin-left:10px;}
+.pa50{padding: 5px 0px}
+.padd020{padding: 0px 20px;}
+.padd20_30{padding: 20px 30px;}
+.padd10{padding: 10px;}
+.mt10 {margin-top: 10px}
+.mt20{margin-top: 20px;}
+
+.color_red{color:$red}
+.color_blue{color:$blue}
+.color_green{color:$green !important; }
+.color_grey{color:$grey}
+.color_orange{color:$orange}
+.color_yellow {color:$yellow}
+.color_purple{color:$purple}
+
+.bg_red{color:$red}
+.bg_blue{color:$blue_dark}
+.bg_green{color:$green_light}
+.bg_grey{color:$grey}
+.bg_orange{color:$orange_light}
+.bg_yellow {color:$yellow_light}
+.bg_purple{color:$purple}
+
+.border_no{border: none;}
+
+.fadeout{width:120px;height:120px;background:#262626;border-radius:8px;position:absolute;filter:alpha(opacity=80);-moz-opacity:0.8;-khtml-opacity: 0.8;opacity: 0.8;}
+.fadeout_middle{position:relative;top:20px;left:33px;}
+.shape{width:54px;height:54px;@include bg_image("page_rotate.png","no-repeat");}
+.script{width:54px;height:54px;font-size:14px;color:#fff;text-align:center;line-height:54px;}
+.opr-texiao-rotate{animation:page_rotate 1s linear infinite;-webkit-animation:page_rotate 1s linear infinite;-moz-animation:page_rotate 1s linear infinite;}
+@keyframes page_rotate{
+  @include animate_rotate(0deg,360deg,720deg);
+}
+@-webkit-keyframes page_rotate{
+  @include animate_rotate(0deg,360deg,720deg);
+}
+@-moz-keyframes page_rotate{
+  @include animate_rotate(0deg,360deg,720deg);
+}
+
+input{
+  &[disabled] {background:#f2f2f2;@include border_solid($grey_light);}
+  &:focus {border-color: #66afe9; outline: 0; @include box_shadow("inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6)");}
+  &.sinput:focus {border-color: #66afe9;}
+  .tsinp:focus {@include box_shadow( "inset 0 1px 1px rgba(0, 0, 0, 0), 0 0 8px rgba(102, 175, 233, 0)"); }
+}
+.login_inp02 input:focus,.fromnums input:focus{ @include box_shadow("inset 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(102, 175, 233, 0)");}
+.fromnums_focus.fromnums {border-color: #66afe9; outline: 0; @include box_shadow( "inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6)");}
+/*定位 
+******************************/
+.tl { text-align:left !important;}
+.tc { text-align:center !important; }
+.tr { text-align:right !important;}
+.bc { margin-right:auto ;margin-left:auto;}
+.fl { float:left; display:inline;}
+.fr { float:right; display:inline;}
+.vm { vertical-align: middle;}
+.vt { vertical-align: top;}
+.pr { position:relative;}
+.pa { position:absolute;}
+.abs-right { position:absolute; right:0;}
+.zoom { zoom:1}
+.mar0{margin: 0 auto;}
+
+/*btns*/
+.btn_refresh {@include bg_image("btn_all.png","0px 0px no-repeat");}/*刷新*/
+.btn_transfer {@include bg_image("btn_all.png","0px -30px no-repeat");}/*分配*/
+.btn_follow{@include bg_image("btn_all.png","0px -60px no-repeat");}/*跟进*/
+.btn_invalid {@include bg_image("btn_all.png","0px -90px no-repeat");}/*无效*/
+.btn_public {@include bg_image("btn_all.png","0px -120px no-repeat");}/*公共*/
+.btn_craise {@include bg_image("btn_all.png","0px -150px no-repeat");}/*认购*/
+.btn_subscribe {@include bg_image("btn_all.png","0px -180px no-repeat");}/*认筹*/
+.btn_deal {@include bg_image("btn_all.png","0px -210px no-repeat");}/*成交*/
+.btn_export {@include bg_image("btn_all.png","0px -240px no-repeat");}/*导出*/
+.btn_add {@include bg_image("btn_all.png","0px -270px no-repeat");}/*添加*/
+.btn_select{@include bg_image("btn_all.png","0px -300px no-repeat");}/*筛选*/
+.btn_left{@include bg_image("btn_all.png","0px -330px no-repeat");}/*上页*/
+.btn_right{@include bg_image("btn_all.png","0px -360px no-repeat");}/*下页*/
+.btn_delete{@include bg_image("btn_all.png","0px -390px no-repeat");}/*删除*/
+.btn_sitness{@include bg_image("btn_all.png","0px -420px no-repeat");}/*带看奖发放*/
+.btn_change{@include bg_image("btn_all.png","0px -481px no-repeat");} /*变更*/
+.btn_edit{@include bg_image("btn_all.png","0px -527px no-repeat");}/*编辑*/
+.btn_account{@include bg_image("btn_all.png","0px -691px no-repeat");}/*到账*/
+.btn_reimburse{@include bg_image("btn_all.png","0px -593px no-repeat");}/*退款*/
+.btn_delay{@include bg_image("btn_all.png","0px -625px no-repeat");}/*延期*/
+.btn_payment{@include bg_image("btn_all.png","0px -662px no-repeat");}/*催缴跟进*/
+
+.btn_set{@include bg_image("btn_show.png","0px 0px no-repeat");}/*设置*/
+.btn_revise{@include bg_image("btn_show.png","0px -60px no-repeat");}/*修改*/
+.btn_login{@include bg_image("btn_show.png","0px -120px no-repeat");}/*登录*/
+.btn_audit{@include bg_image("btn_show.png","0px -180px no-repeat");}/*审核*/
+
+/*悬浮按钮*/
+.btn_refresh:hover {@include bg_image("btn_all.png","-80px 0px no-repeat");}/*刷新*/
+.btn_transfer:hover  {@include bg_image("btn_all.png","-80px -30px no-repeat");}/*转移*/
+.btn_follow:hover {@include bg_image("btn_all.png","-80px -60px no-repeat");}/*跟进*/
+.btn_invalid:hover  {@include bg_image("btn_all.png","-80px -90px no-repeat");}/*无效*/
+.btn_public:hover  {@include bg_image("btn_all.png","-80px -120px no-repeat");}/*公共*/
+.btn_craise:hover  {@include bg_image("btn_all.png","-80px -150px no-repeat");}/*认购*/
+.btn_subscribe:hover  {@include bg_image("btn_all.png","-80px -180px no-repeat");}/*认筹*/
+.btn_deal:hover  {@include bg_image("btn_all.png","-80px -210px no-repeat");}/*成交*/
+.btn_export:hover  {@include bg_image("btn_all.png","-80px -240px no-repeat");}/*导出*/
+.btn_add:hover  {@include bg_image("btn_all.png","-80px -270px no-repeat") ;}/*添加*/
+.btn_select:hover {@include bg_image("btn_all.png","-80px -300px no-repeat") ;}/*筛选*/
+.btn_left:hover {@include bg_image("btn_all.png","-80px -330px no-repeat #0074d9");border-color:#0074d9; }/*上页*/
+.btn_right:hover {@include bg_image("btn_all.png","-80px -360px no-repeat #0074d9");border-color:#0074d9;}/*下页*/
+.btn_delete:hover {@include bg_image("btn_all.png","-80px -390px no-repeat");}/*删除*/
+.btn_sitness:hover{@include bg_image("btn_all.png","-80px -420px no-repeat");}/*带看奖发放*/
+.btn_change:hover{@include bg_image("btn_all.png","-80px -480px no-repeat");} /*变更*/
+.btn_edit:hover{@include bg_image("btn_all.png","-80px -527px no-repeat");}/*编辑*/
+.btn_account:hover{@include bg_image("btn_all.png","-79px -691px no-repeat");}/*到账*/
+.btn_reimburse:hover{@include bg_image("btn_all.png","-80px -593px no-repeat");}/*退款*/
+.btn_delay:hover{@include bg_image("btn_all.png","-80px -625px no-repeat");}/*延期申请*/
+.btn_payment:hover{@include bg_image("btn_all.png","-80px -662px no-repeat");}/*催缴跟进*/
+
+a.btn_set:hover {@include bg_image("btn_show.png","0px -30px no-repeat");color: #0074d9;}/*设置*/
+a.btn_revise:hover {@include bg_image("btn_show.png","0px -90px no-repeat");color: #74d037;}/*修改*/
+a.btn_login:hover{@include bg_image("btn_show.png","0px -150px no-repeat");color:#fbab00;}/*登录*/
+a.btn_audit:hover {@include bg_image("btn_show.png","0px -212px no-repeat");color: #74d037;}/*审核*/
+a.btn_check:hover{@include bg_image("btn_uncheck.png");}/*查看*/
+
+/*禁用按钮*/
+a.rebtn_craise{@include bg_image("btn_all.png","-147px -150px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;}/*认筹*/
+a.rebtn_subscribe{@include bg_image("btn_all.png","-147px -180px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;}/*认购*/
+a.rebtn_deal{@include bg_image("btn_all.png","-147px -210px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;}/*成交*/
+a.rebtn_delete {@include bg_image("btn_all.png","-147px -390px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;}/*删除*/
+a.rebtn_follow {@include bg_image("btn_all.png","-147px -60px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;}/*删除*/
+a.rebtn_change{@include bg_image("btn_all.png","-150px -481px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;} /*变更*/
+a.rebtn_edit{@include bg_image("btn_all.png","-149px -527px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;}/*编辑*/
+a.rebtn_account{@include bg_image("btn_all.png","-150px -562px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;}/*到账*/
+a.rebtn_reimburse{@include bg_image("btn_all.png","-147px -593px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;}/*到账*/
+a.rebtn_delay{@include bg_image("btn_all.png","-155px -624px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;}/*延期*/
+a.rebtn_payment{@include bg_image("btn_all.png","-155px -661px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;}/*催缴跟进*/
+
+a.rebtn_craise:hover {@include bg_image("btn_all.png","-147px -150px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;}/*认筹*/
+a.rebtn_subscribe:hover{@include bg_image("btn_all.png","-147px -180px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;}/*认购*/
+a.rebtn_deal:hover {@include bg_image("btn_all.png","-147px -210px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;}/*成交*/
+a.rebtn_delete:hover {@include bg_image("btn_all.png"," -147px -390px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;}/*删除*/
+a.rebtn_follow:hover {@include bg_image("btn_all.png","-147px -60px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;}/*删除*/
+a.rebtn_change:hover{@include bg_image("btn_all.png","-150px -480px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;} /*变更*/
+a.rebtn_edit:hover{@include bg_image("btn_all.png","-147px -527px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;}/*编辑*/
+a.rebtn_account:hover{@include bg_image("btn_all.png","-147px -562px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;}/*到账*/
+a.rebtn_reimburse:hover{@include bg_image("btn_all.png","-147px -593px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;}/*退款*/
+a.rebtn_delay:hover{@include bg_image("btn_all.png","-155px -624px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;}/*延期*/
+a.rebtn_payment:hover{@include bg_image("btn_all.png","-155px -661px no-repeat #f6f6f6");color:#999999;cursor:not-allowed;}/*催缴*/
+
+.content{margin:20px 20px 15px;}
+.headline{color:#4d4d4d;border-bottom:1px solid #e6e6e6;zoom:1}
+.headline:after{content:"\0020"; height:0; display:block; clear:both;}
+.line_left{font-size:18px;float:left;}
+.line_right{font-size:12px;float:right;vertical-align:middle;padding-top:5px;}
+.line_add {float:left;overflow:hidden;margin-bottom:10px;}
+.line_add ul {line-height:20px;vertical-align:middle;}
+.line_add ul li:first-child {border:none;font-size:14px;padding:0px;}
+.line_add ul li {float:left;width:auto;height:23px;padding:0px 25px 0 5px;border:1px solid #d9d9d9;line-height:23px;margin-right:14px;position:relative;margin-top:10px;}
+.line_add ul li .delete_none{display:block;position:absolute;width:10px;height:10px;top:6px;right:10px;}
+.line_add ul li em,.line_add ul li span{padding:5px;}
+
+.headline02{color:#4d4d4d;zoom:1;height:25px;}
+.headline02:after{content:"\0020"; height:0; display:block; clear:both;}
+
+/*tree level table*/
+.line_center{height:46px;width:auto; @include bg_image_noRepeat("line_center.png");line-height:46px;padding-left:45px;text-indent:0px;}
+.line_conn{height:46px; width:auto;@include bg_image_noRepeat("line_conn.png");line-height:46px;padding-left:45px;}
+.line_bottom{height:46px; width:auto;@include bg_image_noRepeat("line_bottom.png");line-height:46px;padding-left:45px;text-indent:0px;}
+.line_connno{height:46px; width:auto;@include bg_image_noRepeat("line_conn.png");line-height:46px;padding-left:90px;}
+.line_none{height:46px; width:auto;line-height:46px;padding-left:45px;}

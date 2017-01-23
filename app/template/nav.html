@@ -1,0 +1,26 @@
+<div id="topBar">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img alt="Brand" src="/images/top_logo.jpg">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li ng-repeat="menu in menuList" ng-class="{'on':type==menu.type}">
+                        <a href="#{{menu.hash}}" ng-bind="menu.name" ng-click="changeType(menu.type)"></a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="left-month"><span class="top-text">服务剩余(月)</span><span class="bottom-text" ng-bind="agent.SurplusServiceMonth"></span></li>
+                    <li class="agent-name"><span ng-bind="agent.AgentName"></span></li>
+                    <li>
+                        <a href="#/agent/user" class="userCenter">管理员</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div ui-view class="sass-container" resize width-gap="115" height-gap="48"></div>
+</div>

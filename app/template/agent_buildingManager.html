@@ -1,0 +1,81 @@
+<div id="agent_buildingManager">
+    <ul class="tab_nav">
+        <li class="on">
+            <a value="building" href="#/agent/buildingManager">楼盘管理</a>
+        </li>
+        <li>
+            <a value="garage" href="#/agent/buildingManagerApply">审核申请</a>
+        </li>
+    </ul>
+    <div class="sass-wrap">
+        <div class="content">
+            <div class="bton">
+                <div class="bton_left">
+                    <div class="bton_left_nav">
+                        <a class="btn_refresh last" ng-click="refresh()">刷新</a>
+                    </div>
+                </div>
+                <div class="bton_right">
+                    <div class="search">
+                        <input type="text" name="inpSearch" class="sinput" placeholder="搜索楼盘名称" ng-model="keywords">
+                        <button ng-click="updateDataList()" class="sbtn"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab_warp">
+            <table class="sub_table">
+                <thead>
+                <tr class="info_title">
+                    <th>序号</th>
+                    <th>行政区</th>
+                    <th>楼盘名称</th>
+                    <th>联系人</th>
+                    <th>联系电话</th>
+                    <th>开通时间</th>
+                    <th>关闭时间</th>
+                    <th>购买服务(月)</th>
+                    <th>剩余有效期(天)</th>
+                    <th>销冠服务</th>
+                    <th>审核时间</th>
+                    <th>备注</th>
+                    <th>申请人记录</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="sub in subList" class="info_cont">
+                    <td ng-bind="$index+1"></td>
+                    <td ng-bind="sub.Regierungsbezirk"></td>
+                    <td ng-bind="sub.BuildingName"></td>
+                    <td ng-bind="sub.BuildingContactName"></td>
+                    <td ng-bind="sub.BuildingContactPhone"></td>
+                    <td ng-bind="sub.BeginTime"></td>
+                    <td ng-bind="sub.EndTime"></td>
+                    <td ng-bind="sub.ServiceBuyMonth"></td>
+                    <td ng-bind="sub.DaysRemaining"></td>
+                    <td ng-bind="sub.IsOpen?'开通':'关闭'"></td>
+                    <td ng-bind="sub.AuditTime"></td>
+                    <td ng-bind="sub.AuditRemark"></td>
+                    <td>
+                        <a href="#/agent/buildingManagerLog/{{sub.AgentBuildingGuid}}">查看</a>
+                    </td>
+                    <td ng-show="!sub.IsOpen">
+                        <a ng-click="openBuildingModal(sub)">开通</a>
+                    </td>
+                    <td ng-show="sub.IsOpen">--</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!--放置分页 begin -->
+            <div class="pageTable">
+                <div class="pageIn">
+                    <sass-paging page-size="pageSize" page-index="pageIndex" total-count="totalCount">
+                    </sass-paging>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

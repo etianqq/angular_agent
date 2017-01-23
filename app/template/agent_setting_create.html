@@ -1,0 +1,125 @@
+<div id="agent_setting_create">
+    <div class="fromtit1 clearfix">
+        <h1>账号管理</h1>
+        <a href="#agent/setting" class="gouback">返回</a>
+    </div>
+
+    <div class="fromtit2 clearfix">
+        <h2>基本信息</h2>
+    </div>
+
+    <form name="accountForm" ng-submit="createAccount()" novalidate>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">真实姓名:</label>
+
+                <div class="col-sm-6">
+                    <div class="input-group">
+                        <input type="text" name="realName" class="form-control" placeholder="请填写真实姓名" ng-model="account.realName"
+                               ng-minlength="1" ng-maxlength="9" required/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-class="{'btn-warning':account.sex}" ng-click="updateSex(true)">先生</button>
+                        <button class="btn btn-default" type="button" ng-class="{'btn-warning':!account.sex}" ng-click="updateSex(false)">女士</button>
+                    </span>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <span class="color_red error-tips" ng-show="accountForm.realName.$invalid&& !accountForm.realName.$pristine">不能为空!</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">联系电话:</label>
+
+                <div class="col-sm-6">
+                    <input type="number" name="cellPhone" class="form-control" placeholder="请填写联系电话" ng-model="account.cellPhone"
+                           ng-minlength="11" ng-maxlength="11" required/>
+                </div>
+                <div class="col-sm-3">
+                    <span class="color_red error-tips"
+                          ng-show="accountForm.cellPhone.$invalid&& !accountForm.cellPhone.$pristine">请填写正确的手机号!</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">电子邮箱:</label>
+
+                <div class="col-sm-6">
+                    <input type="email" name="email" class="form-control" placeholder="请填写电子邮箱" ng-model="account.email" required/>
+                </div>
+                <div class="col-sm-3">
+                    <span class="color_red error-tips" ng-show="accountForm.email.$invalid&& !accountForm.email.$pristine">请填写正确的邮箱!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="fromtit2 clearfix">
+            <h2>账户信息</h2>
+        </div>
+
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">登录名:</label>
+
+                <div class="col-sm-6">
+                    <input type="text" name="userName" class="form-control" placeholder="请填写登录名" ng-model="account.userName"
+                           ng-minlength="1" ng-maxlength="20" required/>
+                </div>
+                <div class="col-sm-3">
+                    <span class="color_red error-tips" ng-show="accountForm.userName.$invalid&& !accountForm.userName.$pristine">不能为空!</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">密码:</label>
+
+                <div class="col-sm-6">
+                    <input type="password" name="userPwd" class="form-control" placeholder="请填写账户密码" ng-model="account.userPwd" required/>
+                </div>
+                <div class="col-sm-3">
+                    <span class="color_red error-tips" ng-show="accountForm.userPwd.$invalid&& !accountForm.userPwd.$pristine">不能为空!</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">确认密码:</label>
+
+                <div class="col-sm-6">
+                    <input type="password" name="re_userPwd" class="form-control" placeholder="请确认账户密码" ng-model="account.re_userPwd"
+                           pw-check="account.userPwd" required/>
+                </div>
+                <div class="col-sm-3">
+                    <span class="color_red error-tips"
+                          ng-show="accountForm.re_userPwd.$invalid && !accountForm.re_userPwd.$pristine && accountForm.re_userPwd.$error.pwmatch">
+                        密码不一致!</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">有效时间:</label>
+
+                <div class="col-sm-6">
+                    <input type="date" name="endTime" class="form-control" placeholder="请输入时间" format-date ng-model="account.endTime"
+                           required/>
+                </div>
+                <div class="col-sm-3">
+                    <span class="color_red error-tips" ng-show="accountForm.endTime.$invalid&& !accountForm.endTime.$pristine">不能为空!</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">备注:</label>
+
+                <div class="col-sm-6">
+                    <textarea placeholder="请输入备注信息" class="form-control" rows="3" ng-model="account.remark"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-9 col-md-offset-3 actions">
+                    <button class="btn btn-default btn-warning" type="submit" value="submit" ng-disabled="!canSave()">保存</button>
+                    <a class="btn btn-default" href="#/agent/setting">取消</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

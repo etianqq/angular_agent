@@ -1,0 +1,21 @@
+.card {
+  position: relative;
+  display: inline-block;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, .2);
+  width: 200px;
+  min-height: 100px;
+
+  .card_header {
+    padding: 10px 5px;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: center;
+  }
+
+  .card_content {
+    padding: 10px 15px 15px;
+  }
+
+}

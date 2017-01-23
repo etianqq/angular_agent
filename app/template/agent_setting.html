@@ -1,0 +1,91 @@
+<div id="agent_setting" class="sass-wrap">
+    <div class="bton content">
+        <div class="bton_left">
+            <div class="bton_left_nav">
+                <a class="btn_refresh last" ng-click="refresh()">刷新</a>
+            </div>
+            <div class="bton_left_nav">
+                <a class="btn_add last" href="#/agent/settingCreate">添加账号</a>
+            </div>
+        </div>
+        <div class="bton_right">
+            <div class="search">
+                <input type="text" name="inpSearch" class="sinput" placeholder="请输入搜索关键字" ng-model="keywords"/>
+                <button ng-click="doFilter()" class="sbtn"></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="content_left">
+            <table class="sub_table">
+                <thead>
+                <tr class="info_title">
+                    <th ng-bind="roleObj.F_Title"></th>
+                </tr>
+                </thead>
+                <tr ng-repeat='role in roleObj.RoleList' level-tree class="info_cont" ng-class="{'selected':role.selected}"
+                    ng-click="selectRole(role)">
+                    <td level="{{role.F_Level}}">
+                        <label ng-bind="role.F_Title"></label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="content_right">
+            <table class="sub_table">
+                <thead>
+                <tr class="info_title">
+                    <th>基本信息</th>
+                    <th>状态</th>
+                    <th>剩余有效天数</th>
+                    <th>启用日期</th>
+                    <th>是否接受账单邮件</th>
+                    <th>备注</th>
+                    <th>操作日志</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in adminList" class="info_cont">
+                    <td ng-bind="item.F_RealName+'  '+item.F_CellPhone"></td>
+                    <td>
+                        <input type="checkbox" ng-model="item.F_Enabled" bootstrap-switch size="small"/>
+                    </td>
+                    <td ng-bind="item.DaysRemaining"></td>
+                    <td ng-bind="item.F_BeginTime"></td>
+                    <td>
+                        <input type="checkbox" ng-model="item.F_IsReceiveEmail" bootstrap-switch size="small"/>
+                    </td>
+                    <td ng-bind="item.F_Remark"></td>
+                    <td>
+                        <a ng-click="openSettingLogModal(item.Kid)">查看日志</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="text/ng-template" id="settingLogModal.html">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="settingLogModalCancel()"><span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title">操作日志</h4>
+        </div>
+        <div class="modal-body">
+            <ul class="logging_ul">
+                <li ng-repeat="item in logList">
+
+                    <div class="liwarp">
+                        <span class="time" ng-bind="item.F_AddTime">2016-05-19&nbsp;21:18:09</span>
+
+                        <p class="type"><span ng-bind="item.UpdateBuilding"></span></p>
+
+                        <p class="info">操作内容：<span ng-bind="item.F_Remark"></span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </script>
+
+</div>

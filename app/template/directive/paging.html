@@ -1,0 +1,25 @@
+<ul class="page">
+    <li class="page_left">
+        <button ng-click="selectPrevious()" class="btn btn-default" ng-disabled="pageIndex == 1">&laquo;</button>
+    </li>
+    <li class="page_hover {{getClassName(page)}}" ng-repeat="page in pages">
+        <a ng-click="selectPage(page)"><span>{{getPageName(page)}}</span></a>
+    </li>
+    <li class="page_right">
+        <button ng-click="selectNext()" class="btn btn-default" ng-disabled="pageIndex == totalPages">&raquo;</button>
+    </li>
+
+    <li class="page_ic page_to_text">转到
+        <input name="" type="text" class="txtPageGo form-control" ng-model="re_pageIndex"></li>
+    <li class="page_last page_off" ng-click="goToPage(re_pageIndex)">确定</li>
+    <li class="page_ic selectedPageSize" style="width:auto;">每页记录数
+        <select name="selectedPageSize" ng-model="pageSize" ng-change="changePageSize(pageSize)">
+            <option value="1" ng-selected="pageSize==1">1</option>
+            <option value="2" ng-selected="pageSize==2">2</option>
+            <option value="10" ng-selected="pageSize==10">10</option>
+            <option value="20" ng-selected="pageSize==20">20</option>
+            <option value="30" ng-selected="pageSize==30">30</option>
+            <option value="50" ng-selected="pageSize==50">50</option>
+            <option value="100" ng-selected="pageSize==100">100</option>
+        </select></li>
+</ul>

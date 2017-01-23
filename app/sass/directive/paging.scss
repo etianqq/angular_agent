@@ -1,0 +1,77 @@
+.page {
+  margin: 15px 20px 15px 0;
+  height: 30px;
+  li {
+    min-width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 10px;
+    border-radius: 3px;
+    display: inline-block;
+    color: #555;
+    border: 1px solid #e6e6e6;
+    text-align: center;
+
+    &.page_on {
+      background: #0074d9;
+      border: 1px solid #0074d9;
+      cursor: default;
+      color: #ffffff;
+      > a {
+        color: #ffffff;
+      }
+    }
+    &.page_ic {
+      width: 120px;
+      color: #666666;
+      border: 0 none;
+      &:hover {
+        color: #666666;
+      }
+      input {
+        width: 44px;
+        height: 30px;
+        line-height: 30px;
+        border: 1px solid #e6e6e6;
+        text-align: center;
+        border-radius: 3px;
+      }
+
+      input.txtPageGo {
+        display: inline-block;
+      }
+    }
+    &.page_last {
+      cursor: pointer;
+      border-color: #0074d9;
+      background: #0074d9;
+      color: #fff;
+      width: 40px;
+    }
+    &.page_to_text {
+      width: 78px;
+    }
+  }
+
+  li.page_left, li.page_right {
+    > button {
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      border: none;
+      vertical-align: top;
+
+      &:hover {
+        background-color: #ffffff;
+      }
+    }
+  }
+
+  li.selectedPageSize {
+    width: auto;
+    > select {
+      line-height: 29px;
+      height: 29px;
+    }
+  }
+}
