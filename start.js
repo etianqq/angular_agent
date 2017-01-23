@@ -16,6 +16,9 @@ app.listen(9003, function () {
     console.log('Server listening on', 9003)
 });
 
+var signUpServer = require('./server/signup');
+signUpServer.init(app);
+
 /*--------------------- REST API ---------------------*/
 /*---------------------  MainSheet ---------------------*/
 app.get('/MainSheet/SummaryCount', function (req, res) {
