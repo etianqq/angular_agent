@@ -10,10 +10,10 @@ angular.module('myapp', ['ui.router', 'oc.lazyLoad', 'ui.bootstrap', 'angular-md
         $httpProvider.interceptors.push('sassInterceptor');
     })
     .config(function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.when('', '/agent/buildingManager');
-        $urlRouterProvider.when('/', '/agent/buildingManager');
+        $urlRouterProvider.when('', '/Home');
+        $urlRouterProvider.when('/', '/Home');
 
-        $urlRouterProvider.otherwise('/agent/buildingManager');
+        $urlRouterProvider.otherwise('/Home');
 
         $stateProvider
             .state('agent', {
@@ -123,25 +123,9 @@ angular.module('myapp', ['ui.router', 'oc.lazyLoad', 'ui.bootstrap', 'angular-md
                 templateUrl: 'template/Unauthorized.html'
             })
             /*---------------- test ---------------*/
-            .state('test', {
-                url: '/test',
-                templateUrl: 'template/test.html',
-                controller: 'TestCtrl',
-                resolve: {
-                    loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load('js/test.js');
-                    }]
-                }
-            })
             .state('Home', {
                 url: '/Home',
-                controller: 'HomeController',
-                templateUrl: 'template/Home.html',
-                resolve: {
-                    loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load('js/test.js');
-                    }]
-                }
+                templateUrl: 'template/Home.html'
             });
     })
     .run(function ($rootScope, $window, $document, $injector, $state, hasVisitedUserState) {
